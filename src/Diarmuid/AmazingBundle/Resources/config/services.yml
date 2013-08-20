@@ -1,0 +1,7 @@
+parameters:
+#    diarmuid_amazing.example.class: Diarmuid\AmazingBundle\Example
+
+services:
+#    diarmuid_amazing.example:
+#        class: %diarmuid_amazing.example.class%
+#        arguments: [@service_id, "plain_value", %parameter%]
