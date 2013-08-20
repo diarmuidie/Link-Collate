@@ -1,0 +1,4 @@
+link_collate_site:
+    resource: "@LinkCollateSiteBundle/Resources/config/routing.yml"
+    prefix:   /
+
