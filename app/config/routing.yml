@@ -1,3 +1,7 @@
+diarmuid_amazing:
+    resource: "@DiarmuidAmazingBundle/Resources/config/routing.yml"
+    prefix:   /
+
 link_collate_site:
     resource: "@LinkCollateSiteBundle/Resources/config/routing.yml"
     prefix:   /

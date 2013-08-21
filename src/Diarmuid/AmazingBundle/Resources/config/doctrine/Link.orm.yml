@@ -1,0 +1,18 @@
+Diarmuid\AmazingBundle\Entity\Link:
+    type: entity
+    table: null
+    repositoryClass: Diarmuid\AmazingBundle\Entity\LinkRepository
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        uRL:
+            type: string
+            length: '255'
+            column: URL
+        title:
+            type: text
+            column: Title
+    lifecycleCallbacks: {  }

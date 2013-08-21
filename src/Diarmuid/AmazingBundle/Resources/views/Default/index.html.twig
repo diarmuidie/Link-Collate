@@ -1,1 +1,6 @@
-Hello {{ name }}!
+<ul>
+{% for link in links %}
+    <li><a href="{{ link.id }}">{{ link.Title }}</a></li>
+{% endfor %}
+</ul>
+
