@@ -1,4 +1,3 @@
-
 Used Doctrine to manage DB connections.
 
 ## Methods/Routes: ##
@@ -18,4 +17,4 @@ You will need to run:
     
 To get Doctrine to build out the tables based on the Entity/link.yml file.
 
-Run server and visit [http://localhost:8000/app_dev.php/link](http://localhost:8000/app_dev.php/link)
+Run server and visit [http://localhost:8000/app_dev.php/Link](http://localhost:8000/app_dev.php/Link)
