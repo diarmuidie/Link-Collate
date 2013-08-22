@@ -2,14 +2,18 @@ Link:
     pattern:  /Link/
     defaults: { _controller: DiarmuidAmazingBundle:Default:index }
 
-Link_show:
-    pattern: /Link/{id}
-    defaults: { _controller: DiarmuidAmazingBundle:Default:show}
-
 Link_add:
     pattern:  /Link/add
     defaults: { _controller: DiarmuidAmazingBundle:Default:add }
 
 Link_update:
-    pattern:  /Link/update
-    defaults: { _controller: DiarmuidAmazingBundle:Default:add }
+    pattern:  /Link/update/{id}
+    defaults: { _controller: DiarmuidAmazingBundle:Default:update }
+
+Link_delete:
+    pattern: /Link/delete/{id}
+    defaults: { _controller: DiarmuidAmazingBundle:Default:delete}
+
+Link_show:
+    pattern: /Link/{id}
+    defaults: { _controller: DiarmuidAmazingBundle:Default:show}
