@@ -1,0 +1,16 @@
+Blog\RegistrationBundle\Entity\User:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        email:
+            type: string
+            length: 255
+        plainpassword:
+            type: string
+            length: 255
+    lifecycleCallbacks: {  }

@@ -1,0 +1,25 @@
+# src/Blog/RegistrationBundle/Resources/config/validation.yml
+Blog\RegistraionBundle\Entity\User:
+    constraints:
+        - Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+          fields: 'email'
+          message: 'Email already taken'
+    properties:
+        email:
+            - NotBlank: ~
+            - Email:
+                      message: The email "{{ value }}" is not a valid email.
+                      checkMX: true
+        plainpassword:
+            - NotBlank: ~
+
+Blog\RegistraionBundle\Form\Model\Registration:
+properties:
+        user:
+            - Type:
+                type: Blog\RegistrationBundle\Entity\User
+                message: The value {{ value }} is not a valid {{ type }}.
+            - Valid: ~
+        termsAccepted:
+            - NotBlank: ~
+            - "True": { message: "You have accepted the terms and conditions" }

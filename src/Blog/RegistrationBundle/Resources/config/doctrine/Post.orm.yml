@@ -1,0 +1,21 @@
+Blog\RegistrationBundle\Entity\Post:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        postText:
+            type: string
+            length: 255
+            column: post_text
+        addedBy:
+            type: integer
+            column: added_by
+        published:
+            type: boolean
+        deleted:
+            type: boolean
+    lifecycleCallbacks: {  }
