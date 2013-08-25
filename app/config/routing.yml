@@ -1,5 +1,5 @@
 david_test_links:
-    resource: "@DavidTestLinksBundle/Resources/config/routing.yml"
+    resource: "@BlogRegistrationBundle/Resources/config/routing.yml"
     prefix:   /
 
 diarmuid_amazing:

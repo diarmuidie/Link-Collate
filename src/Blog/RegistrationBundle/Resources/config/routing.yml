@@ -8,5 +8,5 @@ account_create:
    defaults: { _controller: BlogRegistrationBundle:User:create }
 
 account_get:
-  pattern:  /get/{id}
+  pattern:  /get
   defaults: { _controller: BlogRegistrationBundle:User:get }
