@@ -1,0 +1,38 @@
+LinkCollate\SiteBundle\Entity\user:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        email:
+            type: string
+            length: 320
+        username:
+            type: string
+            length: 255
+        added:
+            type: datetime
+        active:
+            type: boolean
+        lastActive:
+            type: datetime
+            column: last_active
+    manyToOne:
+        role:
+            targetEntity: role
+            inversedBy: users
+            joinColumn:
+                name: role_id
+                referencedColumnName: id
+    oneToMany:
+        links:
+            targetEntity: user
+            mappedBy: link
+    oneToMany:
+        tags:
+            targetEntity: user
+            mappedBy: tag
+    lifecycleCallbacks: {  }

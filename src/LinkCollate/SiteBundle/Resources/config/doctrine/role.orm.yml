@@ -1,0 +1,20 @@
+LinkCollate\SiteBundle\Entity\role:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        name:
+            type: string
+            length: '60'
+        role:
+            type: string
+            length: '60'
+    oneToMany:
+        users:
+            targetEntity: role
+            mappedBy: user
+    lifecycleCallbacks: {  }

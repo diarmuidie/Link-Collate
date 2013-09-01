@@ -1,0 +1,34 @@
+LinkCollate\SiteBundle\Entity\tag:
+    type: entity
+    table: null
+    fields:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+        tag:
+            type: string
+            length: 255
+        description:
+            type: text
+        added:
+            type: datetime
+        archived:
+            type: boolean
+            default: false
+        public:
+            type: boolean
+            default: false
+    manyToMany:
+        links:
+            targetEntity: link
+            mappedBy: tags
+    manyToOne:
+        user:
+            targetEntity: user
+            inversedBy: tags
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    lifecycleCallbacks: {  }
