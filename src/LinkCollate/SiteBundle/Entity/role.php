@@ -24,7 +24,19 @@ class role
      */
     private $role;
 
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $users;
 
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -80,54 +92,14 @@ class role
     {
         return $this->role;
     }
-    /**
-     * @var string
-     */
-    private $oneToMany;
 
-
-    /**
-     * Set oneToMany
-     *
-     * @param string $oneToMany
-     * @return role
-     */
-    public function setOneToMany($oneToMany)
-    {
-        $this->oneToMany = $oneToMany;
-    
-        return $this;
-    }
-
-    /**
-     * Get oneToMany
-     *
-     * @return string 
-     */
-    public function getOneToMany()
-    {
-        return $this->oneToMany;
-    }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $users;
-
-    /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->users = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
     /**
      * Add users
      *
-     * @param \LinkCollate\SiteBundle\Entity\role $users
+     * @param \LinkCollate\SiteBundle\Entity\user $users
      * @return role
      */
-    public function addUser(\LinkCollate\SiteBundle\Entity\role $users)
+    public function addUser(\LinkCollate\SiteBundle\Entity\user $users)
     {
         $this->users[] = $users;
     
@@ -137,9 +109,9 @@ class role
     /**
      * Remove users
      *
-     * @param \LinkCollate\SiteBundle\Entity\role $users
+     * @param \LinkCollate\SiteBundle\Entity\user $users
      */
-    public function removeUser(\LinkCollate\SiteBundle\Entity\role $users)
+    public function removeUser(\LinkCollate\SiteBundle\Entity\user $users)
     {
         $this->users->removeElement($users);
     }

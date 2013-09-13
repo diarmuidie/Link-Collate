@@ -7,19 +7,34 @@ LinkCollate\SiteBundle\Entity\user:
             id: true
             generator:
                 strategy: AUTO
-        email:
-            type: string
-            length: 320
         username:
             type: string
             length: 255
-        added:
+        email:
+            type: string
+            length: 255
+        username:
+            type: string
+            length: 255
+        salt:
+            type: string
+            length: 255
+        password:
+            type: string
+            length: 255
+        created:
             type: datetime
-        active:
+        enabled:
             type: boolean
-        lastActive:
-            type: datetime
-            column: last_active
+            default: false
+    oneToMany:
+        links:
+            targetEntity: link
+            mappedBy: user
+    oneToMany:
+        tags:
+            targetEntity: tag
+            mappedBy: user
     manyToOne:
         role:
             targetEntity: role
@@ -27,12 +42,3 @@ LinkCollate\SiteBundle\Entity\user:
             joinColumn:
                 name: role_id
                 referencedColumnName: id
-    oneToMany:
-        links:
-            targetEntity: user
-            mappedBy: link
-    oneToMany:
-        tags:
-            targetEntity: user
-            mappedBy: tag
-    lifecycleCallbacks: {  }

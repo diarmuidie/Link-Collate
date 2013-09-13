@@ -17,29 +17,46 @@ class user
     /**
      * @var string
      */
+    private $username;
+
+    /**
+     * @var string
+     */
     private $email;
 
     /**
      * @var string
      */
-    private $username;
+    private $salt;
+
+    /**
+     * @var string
+     */
+    private $password;
 
     /**
      * @var \DateTime
      */
-    private $added;
+    private $created;
 
     /**
      * @var boolean
      */
-    private $active;
+    private $enabled;
 
     /**
-     * @var \DateTime
+     * @var \Doctrine\Common\Collections\Collection
      */
-    private $lastActive;
+    private $tags;
 
-
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->tags = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+    
     /**
      * Get id
      *
@@ -48,29 +65,6 @@ class user
     public function getId()
     {
         return $this->id;
-    }
-
-    /**
-     * Set email
-     *
-     * @param string $email
-     * @return user
-     */
-    public function setEmail($email)
-    {
-        $this->email = $email;
-    
-        return $this;
-    }
-
-    /**
-     * Get email
-     *
-     * @return string 
-     */
-    public function getEmail()
-    {
-        return $this->email;
     }
 
     /**
@@ -97,179 +91,119 @@ class user
     }
 
     /**
-     * Set added
+     * Set email
      *
-     * @param \DateTime $added
+     * @param string $email
      * @return user
      */
-    public function setAdded($added)
+    public function setEmail($email)
     {
-        $this->added = $added;
+        $this->email = $email;
     
         return $this;
     }
 
     /**
-     * Get added
-     *
-     * @return \DateTime 
-     */
-    public function getAdded()
-    {
-        return $this->added;
-    }
-
-    /**
-     * Set active
-     *
-     * @param boolean $active
-     * @return user
-     */
-    public function setActive($active)
-    {
-        $this->active = $active;
-    
-        return $this;
-    }
-
-    /**
-     * Get active
-     *
-     * @return boolean 
-     */
-    public function getActive()
-    {
-        return $this->active;
-    }
-
-    /**
-     * Set lastActive
-     *
-     * @param \DateTime $lastActive
-     * @return user
-     */
-    public function setLastActive($lastActive)
-    {
-        $this->lastActive = $lastActive;
-    
-        return $this;
-    }
-
-    /**
-     * Get lastActive
-     *
-     * @return \DateTime 
-     */
-    public function getLastActive()
-    {
-        return $this->lastActive;
-    }
-    /**
-     * @var string
-     */
-    private $manyToOne;
-
-
-    /**
-     * Set manyToOne
-     *
-     * @param string $manyToOne
-     * @return user
-     */
-    public function setManyToOne($manyToOne)
-    {
-        $this->manyToOne = $manyToOne;
-    
-        return $this;
-    }
-
-    /**
-     * Get manyToOne
+     * Get email
      *
      * @return string 
      */
-    public function getManyToOne()
+    public function getEmail()
     {
-        return $this->manyToOne;
+        return $this->email;
     }
-    /**
-     * @var \LinkCollate\SiteBundle\Entity\role
-     */
-    private $role;
-
 
     /**
-     * Set role
+     * Set salt
      *
-     * @param \LinkCollate\SiteBundle\Entity\role $role
+     * @param string $salt
      * @return user
      */
-    public function setRole(\LinkCollate\SiteBundle\Entity\role $role = null)
+    public function setSalt($salt)
     {
-        $this->role = $role;
+        $this->salt = $salt;
     
         return $this;
     }
 
     /**
-     * Get role
+     * Get salt
      *
-     * @return \LinkCollate\SiteBundle\Entity\role 
+     * @return string 
      */
-    public function getRole()
+    public function getSalt()
     {
-        return $this->role;
+        return $this->salt;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $links;
 
     /**
-     * Constructor
-     */
-    public function __construct()
-    {
-        $this->links = new \Doctrine\Common\Collections\ArrayCollection();
-    }
-    
-    /**
-     * Add links
+     * Set password
      *
-     * @param \LinkCollate\SiteBundle\Entity\user $links
+     * @param string $password
      * @return user
      */
-    public function addLink(\LinkCollate\SiteBundle\Entity\user $links)
+    public function setPassword($password)
     {
-        $this->links[] = $links;
+        $this->password = $password;
     
         return $this;
     }
 
     /**
-     * Remove links
+     * Get password
      *
-     * @param \LinkCollate\SiteBundle\Entity\user $links
+     * @return string 
      */
-    public function removeLink(\LinkCollate\SiteBundle\Entity\user $links)
+    public function getPassword()
     {
-        $this->links->removeElement($links);
+        return $this->password;
     }
 
     /**
-     * Get links
+     * Set created
      *
-     * @return \Doctrine\Common\Collections\Collection 
+     * @param \DateTime $created
+     * @return user
      */
-    public function getLinks()
+    public function setCreated($created)
     {
-        return $this->links;
+        $this->created = $created;
+    
+        return $this;
     }
-    /**
-     * @var \Doctrine\Common\Collections\Collection
-     */
-    private $tags;
 
+    /**
+     * Get created
+     *
+     * @return \DateTime 
+     */
+    public function getCreated()
+    {
+        return $this->created;
+    }
+
+    /**
+     * Set enabled
+     *
+     * @param boolean $enabled
+     * @return user
+     */
+    public function setEnabled($enabled)
+    {
+        $this->enabled = $enabled;
+    
+        return $this;
+    }
+
+    /**
+     * Get enabled
+     *
+     * @return boolean 
+     */
+    public function getEnabled()
+    {
+        return $this->enabled;
+    }
 
     /**
      * Add tags
@@ -302,5 +236,33 @@ class user
     public function getTags()
     {
         return $this->tags;
+    }
+    /**
+     * @var \LinkCollate\SiteBundle\Entity\role
+     */
+    private $role;
+
+
+    /**
+     * Set role
+     *
+     * @param \LinkCollate\SiteBundle\Entity\role $role
+     * @return user
+     */
+    public function setRole(\LinkCollate\SiteBundle\Entity\role $role = null)
+    {
+        $this->role = $role;
+    
+        return $this;
+    }
+
+    /**
+     * Get role
+     *
+     * @return \LinkCollate\SiteBundle\Entity\role 
+     */
+    public function getRole()
+    {
+        return $this->role;
     }
 }

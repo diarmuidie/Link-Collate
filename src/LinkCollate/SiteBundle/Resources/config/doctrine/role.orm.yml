@@ -9,12 +9,11 @@ LinkCollate\SiteBundle\Entity\role:
                 strategy: AUTO
         name:
             type: string
-            length: '60'
+            length: 255
         role:
             type: string
-            length: '60'
+            length: 255
     oneToMany:
         users:
-            targetEntity: role
-            mappedBy: user
-    lifecycleCallbacks: {  }
+            targetEntity: user
+            mappedBy: role
